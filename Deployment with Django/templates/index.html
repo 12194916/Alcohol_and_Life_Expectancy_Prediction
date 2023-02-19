@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+<style>
+  .login{
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+  }
+  h1{
+    text-align: center;
+    text-transform: uppercase;
+  }
+  form{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
+    width: 60vw;
+    margin: 0 auto;
+  }
+  .input_container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  input,select,option{
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 23px;
+    letter-spacing: 0em;
+    text-align: left;
+    border: none;
+    background-color: transparent;
+    border: solid 1px #C4C4C4;
+    outline: none;
+  }
+  label{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    text-transform: uppercase;
+  }
+  input:focus{
+    outline: none;
+    border-bottom: 3px solid red;
+  }
+  input:focus:valid{
+    border-bottom: 3px solid #7ed56f;
+  }
+  .btn-primary{
+    
+    align-self: flex-end;
+    height: min-content;
+width: max-content;
+padding: 0.5rem 2.5rem;
+    text-transform: uppercase;
+font-size: 12px;
+font-weight: 400;
+line-height: 16px;
+letter-spacing: 0.175em;
+text-align: center;
+border: none;
+background-color: black;
+color: white;
+  }
+select{
+    height: min-content;
+    /* margin-bottom: 1rem; */
+    padding: 0.5rem;
+    border: solid 1px #C4C4C4;
+}
+</style>
+<body>
+ <div class="login">
+  <h1>Predicting life expectancy</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{%url_for('prediction')}"method="post">
+      <div class="input_container">
+        <label for="beer_id">Beer_servings:</label>
+        <input type="number" name="beer_id"  id="beer_id" required="required" />
+      </div>
+      <div class="input_container">
+        <label for="spirit_servings">spirit_servings</label>
+        <input type="number" name="spirit_servings" id="spirit_servings"  required="required" />
+        
+      </div>
+      <div class="input_container">
+        <label for="wine_servings">wine_servings</label>
+        <input type="number" name="wine_servings" id="wine_servings"  required="required" />
+        
+      </div>
+      <div class="input_container">
+        <label for="total_litres_of_pure_alcohol">total_litres_of_pure_alcohol</label>
+        <input type="number" name="total_litres_of_pure_alcohol" id="total_litres_of_pure_alcohol"  required="required" />
+        
+      </div>
+      <div class="input_container">
+        <label for="year_display">Year Display</label>
+        <input type="number" name="year_display" id="year_display"  required="required" />
+        
+      </div>
+    
+      <div class="input_container">
+        <label for="region_code">Region Code</label>
+        <select  name="region_code" id="region_code">
+            <option disabled selected>choose an option</option>
+    <option value="EUR">EUR</option>
+    <option value="AFR">AFR</option>
+    <option value="AMR">AMR</option>
+    <option value="WPR">WPR</option>
+    <option value="EMR">EMR</option>
+    <option value="SEAR">SEAR</option>
+    
+          </select>
+      </div>
+      <div class="input_container">
+        <label for="gho+code">Gho Code</label>
+        <select name="Gho_Code" id="Gho_Code">
+          <option disabled selected>choose an option</option>
+  <option value="WHOSIS_000015">WHOSIS_000015</option>
+  <option value="WHOSIS_000001">WHOSIS_000001</option>
+  <option value="WHOSIS_000002">WHOSIS_000002</option>
+  
+  
+        </select>
+      </div>
+      <div class="input_container">
+        <label for="Group_Code">Group Code</label>
+        <select name="Group_Code" id="Group_Code">
+          <option disabled selected>choose an option</option>
+  <option value="WB_LMI">WB_LMI</option>
+  <option value="WB_HI">WB_HI</option>
+  <option value="WB_UMI">WB_UMI</option>
+  <option value="WB_UMI">WB_UMI</option>
+  
+  
+        </select>
+      </div>
+     <div class="input_container">
+        <label for="group_dislay">Group Display</label>
+        <select name="Group_Display" id="Group_Display">
+            <option disabled selected>choose an option</option>
+    <option value="Balanced_income">Balanced_income</option>
+    <option value="Low_income">Low_income</option>
+    <option value="Upper_middle_income">Upper_middle_income</option>
+    <option value="High_income">High_income</option>
+    <option value="Lower_middle_income">Lower_middle_income</option>
+    
+    
+          </select>
+     </div>
+     <div class="input_container">
+        <label for="gender_display">Gender Display</label>
+        <select name="Gender_Display" id="Gender_Display">
+          <option disabled selected>choose an option</option>
+  <option value="Female">Female</option>
+  <option value="Male">Male</option>
+  <option value="Both_genders">Both</option>
+  
+  
+        </select>
+     </div>
+    
+      
+    
+
+        <button type="submit" class="btn btn-primary">Predict</button>
+    </form>
+
+   <br>
+   <br>
+
+
+ </div>
+
+
+</body>
+</html>
