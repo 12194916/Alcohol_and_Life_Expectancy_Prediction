@@ -1,7 +1,8 @@
 # Alcohol_and_Life_Expectancy_Prediction
 Predicting the life expectancy according to the amount of Alcohol. It is deployed into website using Django
 
-![image](https://user-images.githubusercontent.com/90163078/219934440-22c71b37-e0f8-4c83-bfc0-be0c9e9c2c51.png)
+![image](https://user-images.githubusercontent.com/90163078/219934619-580ca6b9-b19b-4071-80ae-c7015d36389b.png)
+
  Here how it looks like. 
  
  ![image](https://user-images.githubusercontent.com/90163078/219934456-249cf2d7-8176-4e73-865d-f9c3cfc30531.png)
